@@ -7,8 +7,6 @@ const passport = require('passport')
 const multer = require('./../services/multer')
 const mongoose = require('mongoose')
 const Grid = require('gridfs-stream')
-
-
 let conn = mongoose.createConnection(appConfig.db.uri)
 let gfs
 conn.once('open', ()=>{
@@ -16,8 +14,6 @@ conn.once('open', ()=>{
   gfs =Grid(conn.db, mongoose.mongo)
   gfs.collection('uploads')
 })
-
-
 
 module.exports.setRouter = (app)=>{
     let baseUrl =`/api/users`;
